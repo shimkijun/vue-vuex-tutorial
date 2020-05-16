@@ -27,7 +27,7 @@
 </template>
 
 <script>
-// import { mapMutations } from 'vuex'
+import { mapMutations,mapActions } from 'vuex'
 
   export default {
     data() {
@@ -41,6 +41,7 @@
     },
     methods: {
       // ...mapMutations(['addUsers']),
+      ...mapActions(['addUsers']),
       signUp() {
         let userObj = {
           userId: this.userId,
@@ -50,7 +51,8 @@
           src: this.src
         }
         // this.addUsers(userObj)
-        this.$store.commit('addUsers',userObj)
+        // this.$store.dispatch('addUsers',userObj)
+        this.addUsers(userObj)
         this.clearForm()
       },
       clearForm() {
